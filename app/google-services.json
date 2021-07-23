@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "351608579849",
+    "firebase_url": "https://claudio-f276a-default-rtdb.firebaseio.com",
+    "project_id": "claudio-f276a",
+    "storage_bucket": "claudio-f276a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351608579849:android:fefe14eceac64d677555d8",
+        "android_client_info": {
+          "package_name": "com.example.audiostream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351608579849-gtb9ps1f81h2r0caugurfmg59ohvf1vs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.audiostream",
+            "certificate_hash": "bd42864b0df67cf8308a39eedb7d6ef0ba230e7b"
+          }
+        },
+        {
+          "client_id": "351608579849-1nhmlu7ufpo59ped0f582td6ff2v3lll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKNNO7JDWeg4T4Ydd-V9NRMfgvMPm35Ps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351608579849-1nhmlu7ufpo59ped0f582td6ff2v3lll.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

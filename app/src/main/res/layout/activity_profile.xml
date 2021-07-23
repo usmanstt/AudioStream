@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/header"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            >
+
+            <Button
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@drawable/logout"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/_90sdp"
+                android:id="@+id/btnlogout"
+                />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textSize="@dimen/_35ssp"
+            android:fontFamily="@font/agency"
+            android:textColor="@color/white"
+            android:paddingTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:layout_marginRight="@dimen/_80sdp"/>
+
+            <Button
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/backbutton"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="0dp"
+                android:id="@+id/backbtn"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_210sdp"
+        android:background="@color/dark_gray"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/plogo"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:clickable="true"
+            android:onClick="changepfp"
+            android:id="@+id/pfp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_25ssp"
+            android:fontFamily="@font/agency"
+            android:textColor="@color/white"
+            android:id="@+id/usersnameview"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+
+            >
+
+           <Button
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:background="@drawable/shapes"
+               android:text="Inbox"
+               android:fontFamily="@font/agency"
+               android:textSize="@dimen/_15ssp"
+               android:id="@+id/btncollab"
+               android:layout_weight="1"
+               android:layout_marginRight="@dimen/_10sdp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shapes"
+                android:text="Playlist"
+                android:fontFamily="@font/agency"
+                android:textSize="@dimen/_15ssp"
+                android:id="@+id/playlist"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_10sdp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shapes"
+                android:text="Settings"
+                android:fontFamily="@font/agency"
+                android:textSize="@dimen/_15ssp"
+                android:id="@+id/settings"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            >
+
+            <Button
+                android:id="@+id/musicupload"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/uploadlogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Music"
+                android:textSize="@dimen/_16ssp"
+                android:fontFamily="@font/agency"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            >
+
+            <Button
+                android:id="@+id/podcastupload"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/uploadlogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Podcast"
+                android:textSize="@dimen/_16ssp"
+                android:fontFamily="@font/agency"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            >
+
+            <Button
+                android:id="@+id/articleupload"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/uploadlogo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Article"
+                android:textSize="@dimen/_16ssp"
+                android:fontFamily="@font/agency"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <EditText
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:hint="Enter title of your file"
+            android:textColor="@color/black"
+            android:fontFamily="@font/agency"
+            android:id="@+id/filetitle"
+            />
+    </LinearLayout>
+
+</LinearLayout>

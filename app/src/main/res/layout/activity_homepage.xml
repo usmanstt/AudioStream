@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homepage"
+    android:orientation="vertical">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    android:background="@drawable/header"
+    android:text="Top 10s Today"
+    android:textSize="@dimen/_35ssp"
+    android:fontFamily="@font/agency"
+    android:textColor="@color/white"
+    android:textAlignment="center"
+    android:paddingTop="@dimen/_10sdp"
+    android:textStyle="bold"
+    />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_70sdp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/header"
+            android:fontFamily="@font/agency"
+            android:text="Top 10 Music Tracks"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25ssp"
+            android:paddingTop="@dimen/_6sdp"/>
+
+
+
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    >
+
+                <Button
+                    android:id="@+id/track1"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Track"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"/>
+
+                    <Button
+                        android:id="@+id/track2"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track3"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track4"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track5"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track6"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track7"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track8"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track9"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+                    <Button
+                        android:id="@+id/track10"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_150sdp"
+                        android:background="@drawable/topbtnshape"
+                        android:text="Track"
+                        android:textSize="@dimen/_20sdp"
+                        android:fontFamily="@font/agency"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/_10sdp"/>
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/header"
+            android:fontFamily="@font/agency"
+            android:text="Top 10 Podcasts"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25ssp"
+            android:paddingTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                >
+
+                <Button
+                    android:id="@+id/podcast1"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/podcast2"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast3"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast4"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast5"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast6"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast7"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast8"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast9"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/podcast10"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Podcast"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/header"
+            android:fontFamily="@font/agency"
+            android:text="Top 10 News Articles"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25ssp"
+            android:paddingTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                >
+
+                <Button
+                    android:id="@+id/art1"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/art2"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art3"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art4"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art5"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art6"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art7"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art8"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art9"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                android:fontFamily="@font/agency"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/art10"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:background="@drawable/topbtnshape"
+                    android:text="Article"
+                    android:textSize="@dimen/_20sdp"
+                    android:fontFamily="@font/agency"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+    </LinearLayout>
+   </ScrollView>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_50sdp"-->
+<!--        android:background="@drawable/header"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:translationY="-50dp"-->
+<!--        android:paddingTop="@dimen/_10sdp"-->
+<!--        android:paddingLeft="@dimen/_15sdp"-->
+<!--        android:paddingRight="@dimen/_10sdp">-->
+
+
+
+
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:translationY="-50dp"
+        android:background="@drawable/header"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:gravity="center">
+
+<!--    <GridLayout-->
+<!--           android:layout_width="wrap_content"-->
+<!--           android:layout_height="match_parent"-->
+<!--           android:columnCount="6"-->
+<!--           android:rowCount="1"-->
+<!--        >-->
+
+
+        <Button
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/homelogo"
+            android:id="@+id/homebtn"
+            />
+
+        <Button
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/musiclogo"
+            android:id="@+id/musicbtn"
+            android:layout_marginLeft="@dimen/_30sdp"/>
+        <Button
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/podcastlogo"
+            android:id="@+id/podcastbtn"
+            android:layout_marginLeft="@dimen/_30sdp"/>
+        <Button
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/newslogo"
+            android:id="@+id/newsbtn"
+            android:layout_marginLeft="@dimen/_30sdp"/>
+        <Button
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/searchlogo"
+            android:id="@+id/searchbtn"
+            android:layout_marginLeft="@dimen/_30sdp"/>
+        <Button
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/profilelogo"
+            android:id="@+id/profilebtn"
+            android:layout_marginLeft="@dimen/_30sdp"
+            />
+
+
+
+
+
+
+<!--    </GridLayout>-->
+
+    </LinearLayout>
+
+</LinearLayout>
+

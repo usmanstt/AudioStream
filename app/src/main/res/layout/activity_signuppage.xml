@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signuppage"
+    android:background="@color/greyblack"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/applogo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_50sdp"></ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/claudio"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/_5sdp"/>
+
+    <EditText
+        android:id="@+id/signupusername"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/shapes"
+        android:fontFamily="@font/agency"
+        android:hint="Username"
+        android:textColor="@color/greyblack"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_20ssp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/signupemail"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/shapes"
+        android:fontFamily="@font/agency"
+        android:hint="Email"
+        android:textColor="@color/greyblack"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_20ssp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/signuppassword"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/shapes"
+        android:fontFamily="@font/agency"
+        android:hint="Password"
+        android:textColor="@color/greyblack"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_20ssp"
+        android:inputType="textPassword">
+    </EditText>
+
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/btnshape"
+        android:fontFamily="@font/agency"
+        android:text="Sign up"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"></Button>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/agency"
+            android:text="@string/registered"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20ssp" />
+
+        <TextView
+            android:id="@+id/clickablelogintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:fontFamily="@font/agency"
+            android:textSize="@dimen/_20sdp"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_5sdp"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
