@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AudioStream">
-        <activity android:name=".viewArticles"></activity>
+        <activity android:name=".viewPodcasts"></activity>
+        <activity android:name=".viewMusic" />
+        <activity android:name=".viewArticles" />
         <activity android:name=".profile" />
         <activity android:name=".homepage" />
         <activity android:name=".signuppage" />
@@ -29,9 +31,9 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".signup"
-            tools:ignore="DuplicateActivity" />
+<!--        <activity-->
+<!--            android:name=".signup"-->
+<!--            tools:ignore="DuplicateActivity" />-->
         <activity
             android:name=".splashscreen"
             android:theme="@style/Theme.Design.NoActionBar">

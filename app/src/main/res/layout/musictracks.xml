@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/track"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@drawable/topbtnshape"
+            android:text="Track"
+            android:gravity="center"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/agency"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:onClick="playTrack"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

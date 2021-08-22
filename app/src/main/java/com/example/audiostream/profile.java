@@ -46,7 +46,7 @@ public class profile extends AppCompatActivity {
     FirebaseAuth fauth;
     FirebaseUser fuser;
     StorageReference storageReference;
-    FirebaseDatabase firebaseDatabase, firebaseDatabase1;
+    FirebaseDatabase firebaseDatabase, firebaseDatabase1, firebaseDatabase2;
     DatabaseReference databaseReference, databaseReference1;
     TextView name;
     String uid;
@@ -61,7 +61,9 @@ public class profile extends AppCompatActivity {
         fauth = FirebaseAuth.getInstance();
         fuser =fauth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase2 = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("users");
+
         storageReference = FirebaseStorage.getInstance().getReference();
 
         logout = findViewById(R.id.btnlogout);
@@ -234,6 +236,7 @@ public class profile extends AppCompatActivity {
                         firebaseDatabase = FirebaseDatabase.getInstance();
                         databaseReference = firebaseDatabase.getReference("users").child(uid).child("articles");
 //                        databaseReference.child("article1").setValue(uploadArticle);
+                        databaseReference1 = firebaseDatabase2.getReference("users").child("articles");
 
                         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -247,6 +250,27 @@ public class profile extends AppCompatActivity {
                                 }
                                 else if(snapshot.getValue() == null){
                                     databaseReference.child("article1").setValue(uploadArticle);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        //for retrieving
+                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.getValue() != null){
+                                    int totalarticles = (int) snapshot.getChildrenCount();
+                                    totalarticles = totalarticles + 1;
+                                    String articleadd = "article" + String.valueOf(totalarticles);
+                                    databaseReference1.child(articleadd).setValue(uploadArticle);
+
+                                }
+                                else if(snapshot.getValue() == null){
+                                    databaseReference1.child("article1").setValue(uploadArticle);
                                 }
                             }
 
@@ -290,6 +314,7 @@ public class profile extends AppCompatActivity {
                         String uid = fauth.getCurrentUser().getUid().toString();
                         firebaseDatabase = FirebaseDatabase.getInstance();
                         databaseReference = firebaseDatabase.getReference("users").child(uid).child("podcasts");
+                        databaseReference1 = firebaseDatabase2.getReference("users").child("podcasts");
 
                         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -303,6 +328,28 @@ public class profile extends AppCompatActivity {
                                 }
                                 else if(snapshot.getValue() == null){
                                     databaseReference.child("podcast1").setValue(uploadPodcasts);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                        //for retrieving
+                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.getValue() != null){
+                                    int totalpodcasts = (int) snapshot.getChildrenCount();
+                                    totalpodcasts = totalpodcasts + 1;
+                                    String podcastadd = "podcast" + String.valueOf(totalpodcasts);
+                                    databaseReference1.child(podcastadd).setValue(uploadPodcasts);
+
+                                }
+                                else if(snapshot.getValue() == null){
+                                    databaseReference1.child("podcast1").setValue(uploadPodcasts);
                                 }
                             }
 
@@ -344,6 +391,7 @@ public class profile extends AppCompatActivity {
                             String uid = fauth.getCurrentUser().getUid().toString();
                             firebaseDatabase = FirebaseDatabase.getInstance();
                             databaseReference = firebaseDatabase.getReference("users").child(uid).child("music");
+                            databaseReference1 = firebaseDatabase2.getReference("users").child("music");
 
                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -357,6 +405,28 @@ public class profile extends AppCompatActivity {
                                     }
                                     else if(snapshot.getValue() == null){
                                         databaseReference.child("musictrack1").setValue(uploadMusic);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+                            //for retrieving
+                            databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.getValue() != null){
+                                        int totalmusictracks = (int) snapshot.getChildrenCount();
+                                        totalmusictracks = totalmusictracks + 1;
+                                        String musictracksadd = "musictrack" + String.valueOf(totalmusictracks);
+                                        databaseReference1.child(musictracksadd).setValue(uploadMusic);
+
+                                    }
+                                    else if(snapshot.getValue() == null){
+                                        databaseReference1.child("musictrack1").setValue(uploadMusic);
                                     }
                                 }
 
