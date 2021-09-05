@@ -11,16 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
+public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder>  {
 
 
     Context context;
 
     ArrayList<uploadMusic> musiclist;
+    OnMusicListener mOnMusicListener;
 
-    public MusicAdapter(Context context, ArrayList<uploadMusic> musiclist) {
+    public MusicAdapter(Context context, ArrayList<uploadMusic> musiclist, OnMusicListener onMusicListener) {
         this.context = context;
         this.musiclist = musiclist;
+        this.mOnMusicListener = onMusicListener;
     }
 
     @NonNull
@@ -28,7 +30,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
     public MusicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.musictracks, parent, false);
 
-        return new MusicViewHolder(v);
+        return new MusicViewHolder(v, mOnMusicListener);
     }
 
     @Override
@@ -44,15 +46,28 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         return musiclist.size();
     }
 
-    public static class MusicViewHolder extends RecyclerView.ViewHolder{
+    public static class MusicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView trackname;
+        OnMusicListener onMusicListener;
 
-        public MusicViewHolder(@NonNull View itemView) {
+        public MusicViewHolder(@NonNull View itemView, OnMusicListener onMusicListener) {
             super(itemView);
 
             trackname = itemView.findViewById(R.id.track);
+            this.onMusicListener = onMusicListener;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+           onMusicListener.OnMusicClick(getAdapterPosition());
+        }
+    }
+
+    public  interface OnMusicListener{
+        void OnMusicClick(int position);
     }
 
 }

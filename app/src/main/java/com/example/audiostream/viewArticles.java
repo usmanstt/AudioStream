@@ -84,6 +84,7 @@ public class viewArticles extends AppCompatActivity {
                     uploadArticles uploadArticles = postSnapshot.getValue(com.example.audiostream.uploadArticles.class);
                     uArticles.add(uploadArticles);
 
+
                 }
                 String[] uploads = new String[uArticles.size()];
 

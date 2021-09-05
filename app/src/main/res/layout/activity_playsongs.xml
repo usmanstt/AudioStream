@@ -9,80 +9,81 @@
     android:background="@color/greyblack">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_65sdp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_10sdp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Song Name"
-            android:textSize="@dimen/_40sdp"
+            android:textSize="@dimen/_30sdp"
             android:textColor="@color/white"
             android:fontFamily="@font/agency"
             android:padding="@dimen/_10sdp"
-            android:id="@+id/songname"/>
+            android:id="@+id/songname"
+            android:layout_gravity="center"/>
         <Button
             android:id="@+id/backbtn"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_30sdp"
             android:background="@drawable/backbutton"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_110sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_36sdp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Artist Name"
-            android:textSize="@dimen/_25sdp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/agency"
-            android:paddingLeft="@dimen/_10sdp"/>
-    </LinearLayout>
+        <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_450sdp"
-        android:gravity="center">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
         <ImageView
+            android:id="@+id/imageView"
             android:layout_width="@dimen/_600sdp"
             android:layout_height="@dimen/_200sdp"
-            android:src="@drawable/applogo"></ImageView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:src="@drawable/applogo"
+            app:layout_constraintBottom_toTopOf="@+id/jcplayer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.example.jean.jcplayer.view.JcPlayerView
             android:id="@+id/jcplayer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:play_icon_color="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:next_icon_color="@color/white"
-            app:previous_icon_color="@color/white"
-            app:repeat_one_icon_color="@color/white"
-            app:progress_color="@color/white"
             app:pause_icon_color="@color/white"
+            app:play_icon_color="@color/white"
+            app:previous_icon_color="@color/white"
+            app:progress_color="@color/white"
             app:random_icon_color="@color/white"
-            app:text_audio_current_duration_color="@color/white"
             app:repeat_icon_color="@color/white"
+            app:repeat_one_icon_color="@color/white"
             app:seek_bar_color="@color/white"
+            app:text_audio_current_duration_color="@color/white"
             app:text_audio_duration_color="@color/white"
-            app:text_audio_title_color="@color/white"/>
+            app:text_audio_title_color="@color/white" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
