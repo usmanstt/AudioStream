@@ -258,7 +258,7 @@ public class profile extends AppCompatActivity {
 
                             }
                         });
-                        //for retrieving
+                        //uploading to different node for retrieving
                         databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
