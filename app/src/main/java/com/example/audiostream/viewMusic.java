@@ -1,11 +1,13 @@
 package com.example.audiostream;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,9 +38,7 @@ import java.util.ArrayList;
 
 public class viewMusic extends AppCompatActivity {
 
-//    RecyclerView recyclerView;
     DatabaseReference databaseReference;
-//    MusicAdapter musicAdapter;
     ArrayList<uploadMusic> uploadMusics;
     StorageReference storageReference;
     FirebaseAuth fauth;
@@ -80,64 +80,18 @@ public class viewMusic extends AppCompatActivity {
 
         viewAllMusic();
 
-//        recyclerView = findViewById(R.id.musicRecycler);
 
-//        String uid = fuser.getUid().toString();
-//        databaseReference = FirebaseDatabase.getInstance().getReference("users").child("music");
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         uploadMusics = new ArrayList<>();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                uploadMusic uploadMusic = uploadMusics.get(position);
-//                Intent intent = new Intent(viewMusic.this, playsongs.class);
-//                intent.putExtra("song name", uploadMusic.getName());
-//                intent.putExtra("song url", uploadMusic.getUrl());
-//                intent.putExtra("song position", position);
-//                startActivity(intent);
                 jcplayerView.playAudio(jcAudios.get(position));
                 jcplayerView.setVisibility(View.VISIBLE);
                 jcplayerView.createNotification();
             }
         });
-
-
-
-//        musicAdapter = new MusicAdapter(this,uploadMusics, this);
-
-//        LinearLayoutManager horizontalLayout
-//                = new LinearLayoutManager(
-//                viewMusic.this,
-//                LinearLayoutManager.HORIZONTAL,
-//                false);
-//        recyclerView.setLayoutManager(horizontalLayout);
-
-//        layoutManager = new GridLayoutManager(this,3);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        recyclerView.setNestedScrollingEnabled(false);
-//
-//        recyclerView.setAdapter(musicAdapter);
-
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-//                    uploadMusic umusic = dataSnapshot.getValue(uploadMusic.class);
-//                    uploadMusics.add(umusic);
-//                }
-//
-//                musicAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
 
     }
@@ -172,7 +126,16 @@ public class viewMusic extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                alertDialog.setTitle("Error");
+                alertDialog.setMessage("Error Occured: " + error.toString());
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
             }
         });
 

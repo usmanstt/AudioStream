@@ -32,13 +32,11 @@ import java.util.ArrayList;
 
 public class viewPodcasts extends AppCompatActivity {
 
-    RecyclerView recyclerView;
     DatabaseReference databaseReference;
     PodcastAdapter podcastAdapter;
     ArrayList<uploadPodcasts> uploadPodcasts;
     FirebaseAuth fauth;
     FirebaseUser fuser;
-    RecyclerView.LayoutManager layoutManager;
     Button backbutton;
     JcPlayerView jcPlayerView;
     ArrayList<JcAudio> jcAudios = new ArrayList<>();
@@ -82,39 +80,9 @@ public class viewPodcasts extends AppCompatActivity {
         });
 
 
-//        recyclerView = findViewById(R.id.podcastRecycler);
-
         String uid = fuser.getUid().toString();
-//        databaseReference = FirebaseDatabase.getInstance().getReference("users").child("podcasts");
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         uploadPodcasts = new ArrayList<>();
-//        podcastAdapter = new PodcastAdapter(this, uploadPodcasts);
-//
-//        layoutManager = new GridLayoutManager(this,3);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        recyclerView.setNestedScrollingEnabled(false);
-//
-//        recyclerView.setAdapter(podcastAdapter);
-//
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-//                    uploadPodcasts upodcast = dataSnapshot.getValue(uploadPodcasts.class);
-//                    uploadPodcasts.add(upodcast);
-//                }
-//
-//                podcastAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
     }
 

@@ -2,10 +2,12 @@ package com.example.audiostream;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -74,7 +76,7 @@ public class profile extends AppCompatActivity {
         podcastupload = findViewById(R.id.podcastupload);
         articlesupload = findViewById(R.id.articleupload);
         backbutton = findViewById(R.id.backbtn);
-
+        progressBar = findViewById(R.id.progress);
 
 
         //Retrieving user's info
@@ -109,8 +111,6 @@ public class profile extends AppCompatActivity {
         musicupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent gallery = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(gallery, 1200);
                 Intent pickaudio = new Intent();
                 pickaudio.setType("audio/*");
                 pickaudio.setAction(Intent.ACTION_GET_CONTENT);
@@ -251,11 +251,21 @@ public class profile extends AppCompatActivity {
                                 else if(snapshot.getValue() == null){
                                     databaseReference.child("article1").setValue(uploadArticle);
                                 }
+                                progressBar.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                                alertDialog.setTitle("Error");
+                                alertDialog.setMessage("Error Occured: " + error.toString());
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
                         });
                         //uploading to different node for retrieving
@@ -272,11 +282,21 @@ public class profile extends AppCompatActivity {
                                 else if(snapshot.getValue() == null){
                                     databaseReference1.child("article1").setValue(uploadArticle);
                                 }
+                                progressBar.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                                alertDialog.setTitle("Error");
+                                alertDialog.setMessage("Error Occured: " + error.toString());
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
                         });
 
@@ -288,6 +308,11 @@ public class profile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(profile.this, "Article Could Not Be Uploaded", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -329,11 +354,21 @@ public class profile extends AppCompatActivity {
                                 else if(snapshot.getValue() == null){
                                     databaseReference.child("podcast1").setValue(uploadPodcasts);
                                 }
+                                progressBar.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                                alertDialog.setTitle("Error");
+                                alertDialog.setMessage("Error Occured: " + error.toString());
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
                         });
 
@@ -351,11 +386,21 @@ public class profile extends AppCompatActivity {
                                 else if(snapshot.getValue() == null){
                                     databaseReference1.child("podcast1").setValue(uploadPodcasts);
                                 }
+                                progressBar.setVisibility(View.GONE);
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                                alertDialog.setTitle("Error");
+                                alertDialog.setMessage("Error Occured: " + error.toString());
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
                         });
                     }
@@ -365,6 +410,11 @@ public class profile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(profile.this, "Podcast Could Not Be Uploaded", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -406,11 +456,21 @@ public class profile extends AppCompatActivity {
                                     else if(snapshot.getValue() == null){
                                         databaseReference.child("musictrack1").setValue(uploadMusic);
                                     }
+                                    progressBar.setVisibility(View.GONE);
                                 }
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
-
+                                    AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                                    alertDialog.setTitle("Error");
+                                    alertDialog.setMessage("Error Occured: " + error.toString());
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                    alertDialog.show();
                                 }
                             });
 
@@ -428,11 +488,21 @@ public class profile extends AppCompatActivity {
                                     else if(snapshot.getValue() == null){
                                         databaseReference1.child("musictrack1").setValue(uploadMusic);
                                     }
+                                    progressBar.setVisibility(View.GONE);
                                 }
 
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
-
+                                    AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                                    alertDialog.setTitle("Error");
+                                    alertDialog.setMessage("Error Occured: " + error.toString());
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                    alertDialog.show();
                                 }
                             });
 
@@ -443,6 +513,11 @@ public class profile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(profile.this, "Music Could Not Be Uploaded", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -462,6 +537,8 @@ public class profile extends AppCompatActivity {
                         databaseReference = firebaseDatabase.getReference("users");
                         uid = fauth.getCurrentUser().getUid();
                         databaseReference.child(uid).child("image").setValue(uri.toString());
+                        progressBar.setVisibility(View.GONE);
+
                     }
                 });
 
@@ -470,6 +547,11 @@ public class profile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(profile.this, "Image Could Not Be Updated", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
     }
