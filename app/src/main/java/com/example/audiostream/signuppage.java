@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 
 import java.util.HashMap;
@@ -39,6 +40,7 @@ public class signuppage extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     String uid;
+    String devicetoken;
 
 
     @Override
@@ -52,6 +54,7 @@ public class signuppage extends AppCompatActivity {
         email = findViewById(R.id.signupemail);
         password = findViewById(R.id.signuppassword);
         firebaseAuth = FirebaseAuth.getInstance();
+        devicetoken=FirebaseInstanceId.getInstance().getToken();
 
 
         if(firebaseAuth.getCurrentUser() != null){
@@ -117,10 +120,11 @@ public class signuppage extends AppCompatActivity {
                             hashMap.put("username", pUsername);
                             hashMap.put("uid", uid);
                             hashMap.put("password", pPassword);
+                            hashMap.put("devicetoken",devicetoken);
                             hashMap.put("image", "");
 
                             firebaseDatabase = FirebaseDatabase.getInstance();
-                            databaseReference = firebaseDatabase.getReference("users");
+                            databaseReference = firebaseDatabase.getReference("users").child("profile");
                             databaseReference.child(uid).setValue(hashMap);
                             startActivity(new Intent(getApplicationContext(), homepage.class));
                         }

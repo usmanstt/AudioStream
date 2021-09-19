@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AudioStream">
+        <activity android:name=".Chat.AllUserActivity"></activity>
+        <activity android:name=".Chat.ChatDetailActivity" />
         <activity android:name=".viewPodcasts" />
         <activity android:name=".viewMusic" />
         <activity android:name=".viewArticles" />
@@ -41,6 +43,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".Chat.ReceiveNotification"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

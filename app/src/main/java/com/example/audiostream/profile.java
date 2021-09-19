@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.audiostream.Chat.AllUserActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -53,6 +54,7 @@ public class profile extends AppCompatActivity {
     TextView name;
     String uid;
     EditText title;
+    final int RESULT_LOAD_IMAGE = 0;
     ProgressBar progressBar;
 
     @Override
@@ -140,6 +142,15 @@ public class profile extends AppCompatActivity {
             }
         });
 
+
+        // Inbox Activity
+   inbox.setOnClickListener(new View.OnClickListener() {
+       @Override
+       public void onClick(View v) {
+           startActivity(new Intent(profile.this, AllUserActivity.class));
+           finish();
+       }
+   });
 
 
         //logout functionality

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/chat_details_blue"
+        android:backgroundTint="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sendmessage"
+            android:text="hello how are you"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
+            android:padding="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timesender"
+            android:layout_toEndOf="@id/sendmessage"
+            android:text="10:00"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
