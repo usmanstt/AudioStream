@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.documentfile.provider.DocumentFile;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -66,7 +67,7 @@ public class profile extends AppCompatActivity {
         fuser =fauth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseDatabase2 = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("users");
+        databaseReference = firebaseDatabase.getReference("users").child("profile");
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -98,7 +99,7 @@ public class profile extends AppCompatActivity {
                           Picasso.get().load(image).into(pfp);
                       }
                       catch (Exception x){
-                          Toast.makeText(profile.this, x.toString() , Toast.LENGTH_LONG).show();
+//                          Toast.makeText(profile.this, x.toString() , Toast.LENGTH_LONG).show();
                       }
                   }
             }
@@ -205,7 +206,9 @@ public class profile extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK){
                 Log.i("success", "Statement reach 2");
                 Uri audiouri = data.getData();
-                uploadaudio(audiouri);
+                DocumentFile file = DocumentFile.fromSingleUri(this, audiouri);
+                String filename = file.getName();
+                uploadaudio(audiouri, filename);
             }
         }
         //checking for the right activity for podcast audio.
@@ -432,9 +435,9 @@ public class profile extends AppCompatActivity {
 
 
     //uploading music
-    private void uploadaudio(Uri audiouri) {
+    private void uploadaudio(Uri audiouri, String filename) {
         title = findViewById(R.id.filetitle);
-        String filename = title.getText().toString();
+        title.setText(filename);
 
 
         StorageReference audioFileReference = storageReference.child("users/"+"music"+"/"+filename);
@@ -451,7 +454,7 @@ public class profile extends AppCompatActivity {
                             uploadMusic uploadMusic = new uploadMusic(filename, musicurl.toString());
                             String uid = fauth.getCurrentUser().getUid().toString();
                             firebaseDatabase = FirebaseDatabase.getInstance();
-                            databaseReference = firebaseDatabase.getReference("users").child(uid).child("music");
+                            databaseReference = firebaseDatabase.getReference("users").child("profile").child(uid).child("music");
                             databaseReference1 = firebaseDatabase2.getReference("users").child("music");
 
                             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -547,7 +550,7 @@ public class profile extends AppCompatActivity {
                         firebaseDatabase = FirebaseDatabase.getInstance();
                         databaseReference = firebaseDatabase.getReference("users");
                         uid = fauth.getCurrentUser().getUid();
-                        databaseReference.child(uid).child("image").setValue(uri.toString());
+                        databaseReference.child("profile").child(uid).child("image").setValue(uri.toString());
                         progressBar.setVisibility(View.GONE);
 
                     }

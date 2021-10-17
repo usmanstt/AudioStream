@@ -227,6 +227,7 @@
             android:textColor="@color/black"
             android:fontFamily="@font/agency"
             android:id="@+id/filetitle"
+            android:singleLine="true"
             />
     </LinearLayout>
 
