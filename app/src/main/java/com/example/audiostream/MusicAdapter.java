@@ -1,6 +1,8 @@
 package com.example.audiostream;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.audiostream.PlayMusic.PlayMusicActivity;
+
 import java.util.ArrayList;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder>  {
-
 
     Context context;
 
@@ -34,11 +37,10 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MusicViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MusicViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         uploadMusic uploadMusic = musiclist.get(position);
         holder.trackname.setText(uploadMusic.getName());
-
     }
 
     @Override
@@ -69,5 +71,6 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
     public  interface OnMusicListener{
         void OnMusicClick(int position);
     }
+
 
 }

@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.audiostream.Chat.AllUserActivity;
+import com.example.audiostream.playlist.PlayListActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -41,11 +43,13 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.HashMap;
 
 public class profile extends AppCompatActivity {
-    Button logout,inbox,musicupload,podcastupload,articlesupload, backbutton;
+    Button logout,inbox,musicupload,podcastupload,articlesupload, backbutton,playlistBtn;
     ImageView pfp;
     FirebaseAuth fauth;
     FirebaseUser fuser;
@@ -79,6 +83,7 @@ public class profile extends AppCompatActivity {
         podcastupload = findViewById(R.id.podcastupload);
         articlesupload = findViewById(R.id.articleupload);
         backbutton = findViewById(R.id.backbtn);
+        playlistBtn = findViewById(R.id.playlistBtn);
         progressBar = findViewById(R.id.progress);
 
 
@@ -119,6 +124,13 @@ public class profile extends AppCompatActivity {
                 pickaudio.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(pickaudio, 1200);
 
+            }
+        });
+
+        playlistBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PlayListActivity.class));
             }
         });
 
@@ -332,7 +344,6 @@ public class profile extends AppCompatActivity {
     }
 
 
-
     //uploading podcast
     private void uploadpodcastaudio(Uri audiouripodcast) {
         title = findViewById(R.id.filetitle);
@@ -349,26 +360,24 @@ public class profile extends AppCompatActivity {
                         while (!uriformusic.isComplete());
                         Uri podcasturl = uriformusic.getResult();
 
-                        uploadPodcasts uploadPodcasts = new uploadPodcasts(filename, podcasturl.toString());
+
                         String uid = fauth.getCurrentUser().getUid().toString();
                         firebaseDatabase = FirebaseDatabase.getInstance();
                         databaseReference = firebaseDatabase.getReference("users").child(uid).child("podcasts");
                         databaseReference1 = firebaseDatabase2.getReference("users").child("podcasts");
 
-                        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.getValue() != null){
-                                    int totalpodcasts = (int) snapshot.getChildrenCount();
-                                    totalpodcasts = totalpodcasts + 1;
-                                    String podcastadd = "podcast" + String.valueOf(totalpodcasts);
-                                    databaseReference.child(podcastadd).setValue(uploadPodcasts);
-
+                                int count=0;
+                                count=(int)snapshot.getChildrenCount();
+                                count=count+1;
+                                uploadPodcasts uploadPodcasts = new uploadPodcasts(filename, podcasturl.toString(),0,count);
+                                databaseReference1.child(count+"").setValue(uploadPodcasts);
+/*
                                 }
                                 else if(snapshot.getValue() == null){
-                                    databaseReference.child("podcast1").setValue(uploadPodcasts);
-                                }
-                                progressBar.setVisibility(View.GONE);
+                                    databaseReference.child("podcast1").setValue(uploadPodcasts);*/
                             }
 
                             @Override
@@ -387,18 +396,20 @@ public class profile extends AppCompatActivity {
                         });
 
                         //for retrieving
-                        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                      /*  databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.getValue() != null){
                                     int totalpodcasts = (int) snapshot.getChildrenCount();
                                     totalpodcasts = totalpodcasts + 1;
                                     String podcastadd = "podcast" + String.valueOf(totalpodcasts);
-                                    databaseReference1.child(podcastadd).setValue(uploadPodcasts);
+                                    uploadPodcasts uploadPodcasts = new uploadPodcasts(filename, podcasturl.toString(),podcastadd,0);
 
+                                    databaseReference1.child(podcastadd).setValue(uploadPodcasts);
+*//*
                                 }
                                 else if(snapshot.getValue() == null){
-                                    databaseReference1.child("podcast1").setValue(uploadPodcasts);
+                                    databaseReference1.child("podcast1").setValue(uploadPodcasts);*//*
                                 }
                                 progressBar.setVisibility(View.GONE);
                             }
@@ -416,7 +427,7 @@ public class profile extends AppCompatActivity {
                                         });
                                 alertDialog.show();
                             }
-                        });
+                        });*/
                     }
                 });
             }
@@ -430,6 +441,16 @@ public class profile extends AppCompatActivity {
             public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                 progressBar.setVisibility(View.VISIBLE);
             }
+        }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<UploadTask.TaskSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(profile.this, "Podcast Uploaded Successfully", Toast.LENGTH_SHORT).show();
+
+                }
+            }
         });
     }
 
@@ -438,7 +459,7 @@ public class profile extends AppCompatActivity {
     private void uploadaudio(Uri audiouri, String filename) {
         title = findViewById(R.id.filetitle);
         title.setText(filename);
-
+        int likes = 0;
 
         StorageReference audioFileReference = storageReference.child("users/"+"music"+"/"+filename);
         audioFileReference.putFile(audiouri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -451,25 +472,32 @@ public class profile extends AppCompatActivity {
                             while (!uriformusic.isComplete());
                             Uri musicurl = uriformusic.getResult();
 
-                            uploadMusic uploadMusic = new uploadMusic(filename, musicurl.toString());
+                            //uploadMusic uploadMusic = new uploadMusic(filename, musicurl.toString(),likes);
                             String uid = fauth.getCurrentUser().getUid().toString();
                             firebaseDatabase = FirebaseDatabase.getInstance();
                             databaseReference = firebaseDatabase.getReference("users").child("profile").child(uid).child("music");
                             databaseReference1 = firebaseDatabase2.getReference("users").child("music");
 
-                            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if(snapshot.getValue() != null){
-                                        int totalmusictracks = (int) snapshot.getChildrenCount();
-                                        totalmusictracks = totalmusictracks + 1;
-                                        String musictracksadd = "musictrack" + String.valueOf(totalmusictracks);
-                                        databaseReference.child(musictracksadd).setValue(uploadMusic);
+                                        int count=0;
+                                        count=(int)snapshot.getChildrenCount();
+                                        count=count+1;
+                                        uploadMusic uploadMusic = new uploadMusic(filename, musicurl.toString(),likes,count);
+                                        databaseReference1.child( count+"").setValue(uploadMusic).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()){
+                                                    Toast.makeText(getApplicationContext(),"Song uploaded Successfully",Toast.LENGTH_LONG).show();
+                                                }
+                                                else
+                                                {
+                                                    Toast.makeText(getApplicationContext(),"Failed to upload",Toast.LENGTH_LONG).show();
 
-                                    }
-                                    else if(snapshot.getValue() == null){
-                                        databaseReference.child("musictrack1").setValue(uploadMusic);
-                                    }
+                                                }
+                                            }
+                                        });
                                     progressBar.setVisibility(View.GONE);
                                 }
 
@@ -489,18 +517,17 @@ public class profile extends AppCompatActivity {
                             });
 
                             //for retrieving
-                            databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                           /* databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if(snapshot.getValue() != null){
                                         int totalmusictracks = (int) snapshot.getChildrenCount();
                                         totalmusictracks = totalmusictracks + 1;
                                         String musictracksadd = "musictrack" + String.valueOf(totalmusictracks);
+                                        uploadMusic uploadMusic = new uploadMusic(filename, musicurl.toString(),likes);
+
                                         databaseReference1.child(musictracksadd).setValue(uploadMusic);
 
-                                    }
-                                    else if(snapshot.getValue() == null){
-                                        databaseReference1.child("musictrack1").setValue(uploadMusic);
                                     }
                                     progressBar.setVisibility(View.GONE);
                                 }
@@ -518,7 +545,7 @@ public class profile extends AppCompatActivity {
                                             });
                                     alertDialog.show();
                                 }
-                            });
+                            });*/
 
                         }
                     });

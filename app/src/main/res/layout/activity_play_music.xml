@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlayMusic.PlayMusicActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_margin="@dimen/_15sdp"
+        android:background="@drawable/play_music_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/jclayout">
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/song_wallpaper" />
+
+        <TextView
+            android:id="@+id/likeCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_toStartOf="@id/thumbImg"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:hint="0"
+            android:textSize="@dimen/_16sdp"/>
+
+        <ImageView
+            android:id="@+id/thumbImg"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_20sdp"
+            android:src="@drawable/ic_baseline_thumb_up_24"/>
+
+        <TextView
+            android:id="@+id/addToPlaylist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_alignParentBottom="true"
+            android:text="+ Add To Playlist"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/jclayout">
+
+        <com.example.jean.jcplayer.view.JcPlayerView
+            android:id="@+id/jcplayerPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greyblack"
+            app:next_icon_color="@color/white"
+            app:pause_icon_color="@color/white"
+            app:play_icon_color="@color/white"
+            app:previous_icon_color="@color/white"
+            app:progress_color="@color/white"
+            app:random_icon_color="@color/white"
+            app:repeat_icon_color="@color/white"
+            app:repeat_one_icon_color="@color/white"
+            app:seek_bar_color="@color/white"
+            app:text_audio_current_duration_color="@color/white"
+            app:text_audio_duration_color="@color/white"
+            app:text_audio_title_color="@color/white" />
+        <!--        android:visibility="gone"-->
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

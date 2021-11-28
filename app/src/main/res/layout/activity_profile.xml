@@ -10,16 +10,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
-        android:background="@drawable/header"
-        >
+        android:background="@drawable/header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            >
+            android:layout_marginRight="@dimen/_10sdp">
 
             <Button
                 android:layout_width="@dimen/_25sdp"
@@ -108,9 +106,9 @@
                 android:text="Playlist"
                 android:fontFamily="@font/agency"
                 android:textSize="@dimen/_15ssp"
-                android:id="@+id/playlist"
+                android:id="@+id/playlistBtn"
                 android:layout_weight="1"
-                android:layout_marginRight="@dimen/_10sdp"/>
+                android:layout_marginEnd="@dimen/_10sdp"/>
 
             <Button
                 android:layout_width="0dp"

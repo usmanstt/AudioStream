@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/silver"
     tools:context=".viewMusic"
     android:orientation="vertical">
 
@@ -13,7 +13,6 @@
         android:layout_height="@dimen/_60sdp"
         android:background="@drawable/header"
         android:id="@+id/header">
-
 
                 <TextView
                     android:id="@+id/textView"
@@ -43,17 +42,42 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/Rlsearch"
         android:layout_below="@id/header"
-        android:layout_above="@+id/jclayout"
-        >
+        android:background="@color/black">
 
-        <ListView
-            android:id="@+id/list_music"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:choiceMode="singleChoice"
-            android:listSelector="@color/gray" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/white_backgroun_with_border"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_baseline_search_24" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/search"
+                android:layout_marginStart="10dp"
+                android:hint="Search"
+                android:textSize="18sp"
+                android:background="@null"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Rlsearch"
+            android:id="@+id/list_music"/>
 
         <ProgressBar
             android:id="@+id/pBar"
@@ -75,33 +99,4 @@
 <!--        android:layout_weight="1"-->
 <!--        />-->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/jclayout"
-        >
 
-        <com.example.jean.jcplayer.view.JcPlayerView
-            android:id="@+id/jcplayer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/greyblack"
-            app:next_icon_color="@color/white"
-            app:pause_icon_color="@color/white"
-            app:play_icon_color="@color/white"
-            app:previous_icon_color="@color/white"
-            app:progress_color="@color/white"
-            app:random_icon_color="@color/white"
-            app:repeat_icon_color="@color/white"
-            app:repeat_one_icon_color="@color/white"
-            app:seek_bar_color="@color/white"
-            app:text_audio_current_duration_color="@color/white"
-            app:text_audio_duration_color="@color/white"
-            app:text_audio_title_color="@color/white" />
-        <!--        android:visibility="gone"-->
-
-    </RelativeLayout>
-
-
-</RelativeLayout>

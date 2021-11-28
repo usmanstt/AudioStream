@@ -43,17 +43,50 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/Rlsearch"
         android:layout_below="@id/header"
-        android:layout_above="@+id/jclayout"
-        >
+        android:background="@color/black">
 
-        <ListView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/white_backgroun_with_border"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_baseline_search_24" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/search"
+                android:layout_marginStart="10dp"
+                android:hint="Search"
+                android:textSize="18sp"
+                android:background="@null"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPodcast"
+            android:layout_width="match_parent"
+            android:layout_below="@id/Rlsearch"
+            android:layout_height="wrap_content"/>
+
+       <!-- <ListView
             android:id="@+id/list_podcasts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:choiceMode="singleChoice"
-            android:listSelector="@color/gray" />
+            android:listSelector="@color/gray" />-->
 
         <ProgressBar
             android:id="@+id/pBar"
@@ -75,6 +108,7 @@
     <!--        android:layout_weight="1"-->
     <!--        />-->
 
+<!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,9 +133,7 @@
             app:text_audio_current_duration_color="@color/white"
             app:text_audio_duration_color="@color/white"
             app:text_audio_title_color="@color/white" />
-        <!--        android:visibility="gone"-->
+        &lt;!&ndash;        android:visibility="gone"&ndash;&gt;
 
     </RelativeLayout>
-
-
-</RelativeLayout>
+-->

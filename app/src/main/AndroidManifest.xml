@@ -16,7 +16,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AudioStream">
-        <activity android:name=".Chat.AllUserActivity"></activity>
+        <activity
+            android:name=".hometrack.HomePlayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".podcast.PlayPodcastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".playlist.DisplayPlayListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".playlist.PlayListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlayMusic.PlayMusicActivity"
+            android:exported="false" />
+        <activity android:name=".Chat.AllUserActivity" />
         <activity android:name=".Chat.ChatDetailActivity" />
         <activity android:name=".viewPodcasts" />
         <activity android:name=".viewMusic" />
@@ -43,6 +58,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".Chat.ReceiveNotification"
             android:enabled="true"
