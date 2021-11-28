@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".playlist.PlayListActivity">
+
+    <TextView
+        android:id="@+id/tvPl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play List"
+        android:gravity="center"
+        android:textSize="@dimen/_18ssp"
+        android:padding="@dimen/_6sdp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvPlTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Long press to save song in Playlist"
+        android:gravity="center"
+        android:textSize="@dimen/_14ssp"
+        android:padding="@dimen/_6sdp"
+        android:textColor="@color/white"
+        android:background="@color/purple_200"
+        app:layout_constraintTop_toBottomOf="@id/tvPl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/createPlaylist"
+        tools:listitem="@layout/sample_create_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/tvPlTip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/createNewListTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ Create new PlayList"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/black"
+        android:background="@drawable/play_music_border"
+        android:padding="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/createPlaylist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

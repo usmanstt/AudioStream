@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hometrack.HomePlayActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_margin="@dimen/_15sdp"
+        android:background="@drawable/play_music_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/jclayout">
+
+        <ImageView
+            android:id="@+id/pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/song_wallpaper" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="0"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/countlike"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Likes:"
+            android:layout_toStartOf="@id/countlike"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"></TextView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/jclayout">
+
+        <com.example.jean.jcplayer.view.JcPlayerView
+            android:id="@+id/trackPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/greyblack"
+            app:next_icon_color="@color/white"
+            app:pause_icon_color="@color/white"
+            app:play_icon_color="@color/white"
+            app:previous_icon_color="@color/white"
+            app:progress_color="@color/white"
+            app:random_icon_color="@color/white"
+            app:repeat_icon_color="@color/white"
+            app:repeat_one_icon_color="@color/white"
+            app:seek_bar_color="@color/white"
+            app:text_audio_current_duration_color="@color/white"
+            app:text_audio_duration_color="@color/white"
+            app:text_audio_title_color="@color/white" />
+        <!--        android:visibility="gone"-->
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
